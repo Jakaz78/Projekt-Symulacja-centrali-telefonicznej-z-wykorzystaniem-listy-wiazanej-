@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <time.h>
+#include <ctype.h>
+#include <conio.h>
+
+
+void tekst_startowy();
+
+void main() 
+{
+	tekst_startowy();
+
+}
+
+void tekst_startowy() {
+	 while (1) {
+		printf("   Witamy w centrali telefonicznej\n\n   Jak mozemy ci pomoc? \n\n");
+		printf(" 1. Generator liczb\n 2. lista pracownikow \n 3. wyjscie\n\n");
+
+
+		while (1) {
+			char przycisk;
+
+
+			przycisk = _getch();
+			if (isalpha(przycisk)) {
+				printf("Wpisano litere, wpisz liczbe i sproboj ponownie.\n");
+				continue;
+			}
+			switch (przycisk)
+			{
+			case '1':
+				printf("Wybrano: \n Generator liczb\n");
+				//	generator_liczb();                                        <------------ tutaj w zasadzie bedzie to czego dotyczy projekt XD bo reszta to taka zabawa bym powiedzial
+				break;
+			case '2':
+
+				printf("Wybrano: \n Lista pracownikow\n\n");
+
+				char* lista[] = { "Jolanta", "Adam", "Ewelina", "Andrzej", "Karolina", "Feliks", "Agata", "Edward" };
+				int liczba_elementow = sizeof(lista) / sizeof(lista[0]);
+
+				printf("Czy chcesz wyswietlic liste pracownikow? \n");
+				printf("1. Tak\n2. Nie\n\n");
+				int wybor;
+				wybor = _getch();
+				if (isalpha(wybor)) {
+					printf("Wpisano litere, wpisz liczbe i sproboj ponownie.\n");
+					continue;
+				}
+				switch (wybor) {
+				case '1':
+					printf("Lista pracownikow: \n\n");
+					for (int i = 0; i < liczba_elementow;i++) {
+						printf("%s\n", lista[i]);
+
+					}
+					printf("\n");
+				default:
+					printf("Powrot do menu.\n\n\n");
+					break;
+
+				}
+
+
+				break;
+			case '3':
+				return;
+			default:
+				printf("Wprowadzono bledna liczbe. Sproboj ponownie.\n");
+				continue;
+			}
+			break;
+		}
+		
+	}
+}
