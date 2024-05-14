@@ -30,12 +30,13 @@ void tekst_startowy() {
 			switch (przycisk)
 			{
 			case '1':
-				printf("Wybrano: \n Generator liczb\n");
+				printf("Wybrano: \n * Generator liczb *\n\n");
 				//	generator_liczb();                                        <------------ tutaj w zasadzie bedzie to czego dotyczy projekt XD bo reszta to taka zabawa bym powiedzial
+				printf("Powrot do menu.\n\n\n");
 				break;
 			case '2':
 
-				printf("Wybrano: \n Lista pracownikow\n\n");
+				printf("Wybrano: \n * Lista pracownikow *\n\n");
 
 				char* lista[] = { "Jolanta", "Adam", "Ewelina", "Andrzej", "Karolina", "Feliks", "Agata", "Edward" };
 				int liczba_elementow = sizeof(lista) / sizeof(lista[0]);
