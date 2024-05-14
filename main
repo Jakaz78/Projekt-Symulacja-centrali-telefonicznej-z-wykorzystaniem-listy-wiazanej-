@@ -12,88 +12,93 @@ void main()
 
 }
 
-void tekst_startowy() {
-	 while (1) {
-		printf("   Witamy w centrali telefonicznej\n\n   Jak mozemy ci pomoc? \n\n");
-		printf(" 1. Generator liczb\n 2. lista pracownikow \n 3. wyjscie\n\n");
 
+void tekst_startowy() {
+	while (1) {
+		printf("Witamy w centrali telefonicznej\n\n\n   Jak mozemy ci pomoc? \n\n");
+		printf(" 1. Generator liczb\n 2. Lista pracownikow \n 3. Wyjscie\n\n");
 
 		while (1) {
-			char przycisk;
+			char przycisk = _getch();
 
-
-			przycisk = _getch();
 			if (isalpha(przycisk)) {
-				printf("Wpisano litere, wpisz liczbe i sproboj ponownie.\n");
+				printf("Wpisano litere, wpisz liczbe i sproboj ponownie.\n\n");
 				continue;
 			}
 
 			switch (przycisk) {
+			case '1':
+				printf("Wybrano: \n * Generator liczb *\n\n");
+				//generator_liczb();
+				printf("Powrot do menu.\n\n");
+				printf("---------------\n\n\n");
+				break;
+			case '2':
+				printf("Wybrano: \n * Lista pracownikow *\n\n");
 
-				case '1':
-					printf("Wybrano: \n * Generator liczb *\n\n");
-					//	generator_liczb();                                        <------------ tutaj w zasadzie bedzie to czego dotyczy projekt XD bo reszta to taka zabawa bym powiedzial
-					printf("Powrot do menu.\n\n\n");
-					break;
-				case '2':
+				char* lista[] = { "Jolanta", "Adam", "Ewelina", "Andrzej", "Karolina", "Feliks", "Agata", "Edward" };
+				int liczba_elementow = sizeof(lista) / sizeof(lista[0]);
 
-					printf("Wybrano: \n * Lista pracownikow *\n\n");
-
-					char* lista[] = { "Jolanta", "Adam", "Ewelina", "Andrzej", "Karolina", "Feliks", "Agata", "Edward" };
-					int liczba_elementow = sizeof(lista) / sizeof(lista[0]);
-
-					printf("Czy chcesz wyswietlic liste pracownikow? \n");
+				while (1) {
+					printf("Czy chcesz wyswietlic liste pracownikow? \n\n");
 					printf("1. Tak\n2. Nie\n\n");
-					
-					char wybor = _getch(); 
+
+					char wybor = _getch();
+
 					if (isalpha(wybor)) {
-						printf("Wpisano litere, wpisz liczbe i sproboj ponownie.\n");
+						printf("Wpisano litere, wpisz liczbe i sproboj ponownie.\n\n");
 						continue;
 					}
+
 					switch (wybor) {
-						case '1':
-							printf("Lista pracownikow: \n\n");
-							for (int i = 0; i < liczba_elementow;i++) {
-								printf("%s\n", lista[i]);
-
-							}
-							printf("\n");
-							break;
-						case '2':
-							printf("Powrot do menu.\n\n\n");
-							break;
-						default:
-							printf("Wprowadzono bledna liczbe. Sproboj ponownie.\n");
-							continue;
-					}
-
-					break;
-				case '3':
-					while (1) {
-						printf("Czy na pewno chcesz opuscic program?\n");
-						printf("1. Tak\n2. Nie\n\n");
-						char odp = _getch();
-						switch (odp) {
-						case '1':
-							printf("Wyjscie z programu");
-							return;
-						case '2':
-							printf("Powrot do menu.\n\n\n");
-							break;
-
-						default:
-							printf("Wprowadzono bledna liczbe. Sproboj ponownie.\n");
-							continue;
+					case '1':
+						printf("Lista pracownikow: \n\n");
+						for (int i = 0; i < liczba_elementow; i++) {
+							printf("%s\n", lista[i]);
 						}
+						printf("\nPowrot do menu.\n\n\n");
+						printf("---------------\n\n\n");
 						break;
+					case '2':
+						printf("Powrot do menu.\n\n\n");
+						printf("---------------\n\n\n");
+						break;
+					default:
+						printf("Wprowadzono bledna liczbe. Sproboj ponownie.\n\n");
+						continue;
 					}
 					break;
-				default:
-					printf("Wprowadzono bledna liczbe. Sproboj ponownie.\n");
-					continue;
+				}
+				break;
+			case '3':
+				while (1) {
+					printf("Czy na pewno chcesz opuscic program?\n\n");
+					printf("1. Tak\n2. Nie\n\n");
+					char odp = _getch();
+					if (isalpha(odp)) {
+						printf("Wpisano litere, wpisz liczbe i sproboj ponownie.\n\n");
+						continue;
+					}
+					switch (odp) {
+					case '1':
+						printf("Wyjscie z programu\n\n");
+						return;
+					case '2':
+						printf("Powrot do menu.\n\n\n");
+						printf("---------------\n\n\n");
+						break;
+					default:
+						printf("Wprowadzono bledna liczbe. Sproboj ponownie.\n");
+						continue;
+					}
+					break;
+				}
+				break;
+			default:
+				printf("Wprowadzono bledna liczbe. Sproboj ponownie.\n\n");
+				continue;
 			}
 			break;
 		}
-		
 	}
 }
